@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../../../style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProviders';
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut().then().catch();
+  };
   return (
     <>
       <header className="header">
@@ -20,22 +26,35 @@ const Navbar = () => {
 
           <div>
             <nav className="navbar">
-              <a href="index.html">Home</a>
-              <a href="https://drive.google.com/drive/u/6/folders/1G6-b8K0BorbI_rp-XCJJFlh6XuicYtQK ">
-                Vehicles
-              </a>
+              <Link to={'/'}>Home</Link>
 
-              <a href="About.html">About</a>
-              <a href="Contact.html">Contact</a>
+              <Link to={'/about'}>About</Link>
+              <Link to={'/contact'}>Contact</Link>
             </nav>
           </div>
 
           <div>
             <div id="login-btn">
-              <Link to={'/login'}>
-                <button className="btn">login</button>
-                <i className="far fa-user"></i>
-              </Link>
+              {user ? (
+                <>
+                  <div className="flex">
+                    <div className="avatar">
+                      <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src={user?.photoURL} />
+                      </div>
+                    </div>
+                    <p className="font-bold ml-4">{user?.displayName}</p>
+                    <button className="btn ml-2" onClick={logOut}>
+                      Logout
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <Link to={'/login'}>
+                  <FontAwesomeIcon className="text-3xl mr-3" icon={faUser} />
+                  <button className="btn">login</button>
+                </Link>
+              )}
             </div>
           </div>
         </section>

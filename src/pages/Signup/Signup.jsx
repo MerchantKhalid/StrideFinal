@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import homeImage from '../../assets/image/vehicle-5.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Signup = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignup = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,6 +16,7 @@ const Signup = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate('/');
       })
       .catch((error) => console.log(error));
   };

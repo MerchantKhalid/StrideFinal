@@ -1,22 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import homeImage from '../../assets/image/vehicle-5.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, user, googleSignin } = useContext(AuthContext);
+
+  const { location } = useLocation();
+  const navigate = useNavigate();
+
+  const handleGoogle = () => {
+    googleSignin();
+    navigate('/');
+  };
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
-    const email = from.email.value;
+    const email = form.email.value;
     const password = form.password.value;
+    console.log(email, password);
 
     signIn(email, password)
       .then((result) => {
-        const user = result.user;
+        navigate(location?.state ? location?.state : '/');
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
   return (
@@ -38,6 +50,7 @@ const Login = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
+                name="email"
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
@@ -49,6 +62,7 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
+                name="password"
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
@@ -72,6 +86,10 @@ const Login = () => {
                 Don't Have an account? Please Register
               </Link>
             </label>
+            <div>
+              <FontAwesomeIcon className="text-blue-600" icon={faGoogle} />
+              <button onClick={handleGoogle}>Google</button>
+            </div>
           </form>
         </div>
       </div>
