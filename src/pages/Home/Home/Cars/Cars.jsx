@@ -4,7 +4,7 @@ import CarCard from './CarCard';
 const Cars = () => {
   const [cars, setCars] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/cars')
+    fetch('https://stride-final-server.vercel.app/cars')
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);

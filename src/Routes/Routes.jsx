@@ -43,7 +43,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/cars/${params.id}`),
+          fetch(`https://stride-final-server.vercel.app/cars/${params.id}`),
       },
       {
         path: '/update/:id',
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/cars/${params.id}`),
+          fetch(`https://stride-final-server.vercel.app/cars/${params.id}`),
       },
     ],
   },

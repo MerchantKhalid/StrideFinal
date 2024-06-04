@@ -15,7 +15,7 @@ const Update = () => {
     const description = form.description.value;
     const updatedcar = { title, price, make, mileage, description };
 
-    fetch(`http://localhost:5000/cars/${loadedCar._id}`, {
+    fetch(`https://stride-final-server.vercel.app/cars/${loadedCar._id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

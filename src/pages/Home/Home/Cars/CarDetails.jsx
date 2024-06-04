@@ -9,7 +9,7 @@ const CarDetails = () => {
   const handleDelete = (id) => {
     const agreed = confirm('Are you sure want to delete?');
     if (agreed) {
-      fetch(`http://localhost:5000/car/${id}`, {
+      fetch(`https://stride-final-server.vercel.app/car/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

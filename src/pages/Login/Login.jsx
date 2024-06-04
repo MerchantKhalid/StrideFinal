@@ -28,12 +28,14 @@ const Login = () => {
       .then((result) => {
         const loggedInUser = result.user;
         const user = { email };
-        axios.post(`http://localhost:5000/jwt`, user).then((res) => {
-          console.log(res.data);
-          if (res.data.uid) {
-            navigate(location?.state ? location?.state : '/');
-          }
-        });
+        axios
+          .post(`https://stride-final-server.vercel.app/jwt`, user)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.uid) {
+              navigate(location?.state ? location?.state : '/');
+            }
+          });
       })
       .catch((error) => {
         console.error(error);
