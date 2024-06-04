@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import axios from 'axios';
 
 const Login = () => {
   const { signIn, user, googleSignin } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const Login = () => {
 
   const handleGoogle = () => {
     googleSignin();
-    navigate('/');
+    navigate(location?.state ? location?.state : '/');
   };
 
   const handleLogin = (event) => {
@@ -25,7 +26,14 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
-        navigate(location?.state ? location?.state : '/');
+        const loggedInUser = result.user;
+        const user = { email };
+        axios.post(`http://localhost:5000/jwt`, user).then((res) => {
+          console.log(res.data);
+          if (res.data.uid) {
+            navigate(location?.state ? location?.state : '/');
+          }
+        });
       })
       .catch((error) => {
         console.error(error);

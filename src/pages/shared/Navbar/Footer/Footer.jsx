@@ -18,96 +18,96 @@ import {
 const Footer = () => {
   return (
     <>
-      <footer className="footer" id="footer">
+      <footer className="footer p-10 h-124" id="footer">
         <section className="box-container">
           <div className="box">
             <h3>our branches</h3>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <p className="i">India</p>
+              <p className="i ml-1">India</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <p className="i">Japan</p>
+              <p className="i ml-1">Japan</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <p className="i">France</p>
+              <p className="i ml-1">France</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <p className="i">Russia </p>
+              <p className="i ml-1">Russia </p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <p className="i">USA</p>
+              <p className="i ml-1">USA</p>
             </div>
           </div>
 
           <div className="box">
             <h3>quick links</h3>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faArrowRight} />
-              <p className="i">Home</p>
+              <p className="i mr-1">Home</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faArrowRight} />
-              <p className="i">Vehicles</p>
+              <p className="i mr-1">Vehicles</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faArrowRight} />
-              <p className="i">Contact</p>
+              <p className="i mr-1">Contact</p>
             </div>
           </div>
 
           <div className="box">
-            <h3>contact info</h3>
-            <div>
+            <h3 className="mr-8">contact info</h3>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faPhone} />
               <p className="i">+351920102458</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faPhone} />
               <p className="i">+351920485333</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faPhone} />
-              <p className="i"> purplefrontieruber@gmail.com</p>
+              <p className="i ml-1"> purplefrontieruber@gmail.com</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <p className="i"> Rua Direita Do Viso,</p>
-              <p className="addr">318,4250-196 Ramalde,Porto</p>
+              <></>
             </div>
           </div>
 
           <div className="box">
             <h3>contact info</h3>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faFacebookF} />
-              <p className="i">Facebook</p>
+              <p className="i ml-1">Facebook</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faTwitter} />
-              <p className="i">Twitter</p>
+              <p className="i ml-1">Twitter</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faInstagram} />
-              <p className="i">Instagram</p>
+              <p className="i ml-1">Instagram</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faLinkedin} />
-              <p className="i">Linkedin</p>
+              <p className="i ml-1">Linkedin</p>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <FontAwesomeIcon icon={faPinterest} />
-              <p className="i">Pinterest</p>
+              <p className="i ml-1">Pinterest</p>
             </div>
           </div>
         </section>
-
-        <div className="credit">all rights reserved @2024</div>
       </footer>
+      <div>
+        <div className="credit">all rights reserved @2024</div>
+      </div>
     </>
   );
 };

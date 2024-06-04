@@ -4,10 +4,11 @@ import CarCard from './CarCard';
 const Cars = () => {
   const [cars, setCars] = useState([]);
   useEffect(() => {
-    fetch('service.json')
+    fetch('http://localhost:5000/cars')
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);
+
   return (
     <>
       <div className="mt-4">

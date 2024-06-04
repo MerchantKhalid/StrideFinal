@@ -15,7 +15,7 @@ const CarCard = ({ car }) => {
           <p className="font-bold">Mileage:{mileage}km </p>
           <p className="font-bold">Year:{make} </p>
           <div className="card-actions">
-            <Link className="btn btn-primary" to={`/car/${_id}`}>
+            <Link className="btn btn-primary" to={`/CarDetails/${_id}`}>
               Show Details
             </Link>
           </div>
@@ -24,5 +24,9 @@ const CarCard = ({ car }) => {
     </div>
   );
 };
+
+// ------------------
+
+// ------------------------
 
 export default CarCard;

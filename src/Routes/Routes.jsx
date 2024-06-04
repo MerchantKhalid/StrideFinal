@@ -5,6 +5,9 @@ import Login from '../pages/Login/Login';
 import Signup from '../pages/Signup/Signup';
 import CarDetails from '../pages/Home/Home/Cars/CarDetails';
 import PrivateRoute from './PrivateRoute';
+import Update from '../pages/Home/Home/Cars/Update';
+import About from '../pages/About/About';
+import Contact from '../pages/Contact/Contact';
 
 const router = createBrowserRouter([
   {
@@ -15,14 +18,7 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
-      {
-        path: '/car/:id',
-        element: (
-          <PrivateRoute>
-            <CarDetails />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: '/login',
         element: <Login />,
@@ -30,6 +26,34 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />,
+      },
+      {
+        path: '/about',
+        element: <About />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
+      {
+        path: '/CarDetails/:id',
+        element: (
+          <PrivateRoute>
+            <CarDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/cars/${params.id}`),
+      },
+      {
+        path: '/update/:id',
+        element: (
+          <PrivateRoute>
+            <Update />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/cars/${params.id}`),
       },
     ],
   },

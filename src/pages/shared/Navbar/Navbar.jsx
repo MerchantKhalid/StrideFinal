@@ -38,12 +38,13 @@ const Navbar = () => {
               {user ? (
                 <>
                   <div className="flex">
-                    <div className="avatar">
+                    <p className="font-bold ml-4">{user?.displayName}</p>
+                    <p className="font-bold ml-4 mr-4">{user?.email}</p>
+                    <div className="avatar mr-3">
                       <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={user?.photoURL} />
                       </div>
                     </div>
-                    <p className="font-bold ml-4">{user?.displayName}</p>
                     <button className="btn ml-2" onClick={logOut}>
                       Logout
                     </button>
